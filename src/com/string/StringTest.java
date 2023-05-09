@@ -14,6 +14,8 @@ public class StringTest {
         //stringReplace();
         //stringToLowerCase();
         //stringToUpperCase();
+        //stringFormat();
+        regex();
     }
 
     public static void StringChar() {
@@ -153,5 +155,34 @@ public class StringTest {
     public static void stringToUpperCase() {
         String fullName = "Yunus Emre Çiftçi";
         System.out.println(fullName.toUpperCase());
+    }
+
+    public static void stringFormat() {
+        //% işaretinden sonra yazılan ilk sayı kaç birimlik alan açılacağını bildirir.
+        //. ifadesi .'lı ifade geliyor anlamına gelir. .'dan sonra yazılan sayı .'dan sonra kaç birim yazılacak onu bildirir. Yazının yanına f yazılması gerekiyor.
+        //Çünkü .'lı sayıları ifade etmek için float kullanılır. Çevirme esnasında mantıksal çevirim esastır.
+        System.out.print("Virgüllü sayıları formatlama:");
+        System.out.printf("%4.2f", 4.5 / 3.0);
+
+
+        //%5s,d,c ifadesi sağ taraftan 5 birimlik yer açılacağı anlamına gelir. Girilen string ifade 5 birimden büyükse %5s ifadesinin anlamı kalmaz. Girilen ifade yazdırılır.
+        //%-5s,d,c gibi bir ifade ise sol taraftan 5 birimlik yer açtırır. Kuralları yukarıdaki ile aynı.
+        System.out.print("\nBoşluk bırakma: ");
+        System.out.printf("%5s", "Y");
+        System.out.printf("%-5s", "E");
+
+        //%010d ifadesi verilen sayının başında kaç tane 0 olacağı anlamına gelir. Fakat verilen sayı 0'ların sonuna eklenir.
+        //Yani 10 tane 0 gelmesini istiyorsun. Sayıya da 25 yazdın. Çıktı şöyle olur: 0000000025
+        //%'den sonra 0 yazılır ve hemen yanında kaç tane 0 olmasını istiyorsan o yazılır. Daha sonra ifadenin yanında d harfi eklenir.
+        //Eğer girilen sayı istenilen 0 sayısından büyükse sayı olduğu gibi yazılır.
+        System.out.print("\n0 ile sayıları yazma: ");
+        System.out.printf("%09d", 34);
+
+        //Tüm bu ifadeler String.format ile kullanılsa kullanım açısından daha faydalı olur.
+        String format = String.format("%05d", 24);
+        //Bu şekilde
+    }
+    public static void regex(){
+        System.out.println("Yunus".matches("u"));
     }
 }
