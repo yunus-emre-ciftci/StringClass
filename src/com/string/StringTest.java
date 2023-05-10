@@ -182,7 +182,35 @@ public class StringTest {
         String format = String.format("%05d", 24);
         //Bu şekilde
     }
-    public static void regex(){
-        System.out.println("Yunus".matches("u"));
+
+    public static void regex() {
+        // \\d,s,ch vs. ifadesi "" ifadesi içine yazılan ifadenin aynı tipte sadece 1 tane bulunursa true döner.
+        System.out.println("1".matches("\\d"));
+        // "d" ifadesi "" ifadesi içine sadece d harfi yazılırsa true döner. Aynı olmak zorunda.
+        System.out.println("d".matches("d"));
+        // \\d,s,ch+ ifadesi ile örneğin d tipinde en az 1 tane sayı varsa true döner.
+        System.out.println("1".matches("\\d+"));
+
+
+        System.out.println("123455".matches("\\d++5"));
+
+        //A{2} ifadesi ile "" ifadesinin içinde sadece A harfinden 2 tane varsa true döner.
+        System.out.println("AAAAA".matches("A{5}"));
+        //Sayılar için de geçerli.
+        System.out.println("11111".matches("1{5}"));
+
+        // A{5,} ifadesi A'dan en az 5 adet bulunursa true döndürür.
+        System.out.println("AAAAAAAA".matches("A{5,}"));
+
+        // A{0, 10} ifadesi A'dan en fazla 10 adet bulunursa true döndürür.
+        System.out.println("AAAAAAA".matches("A{0,10}"));
+
+        //A{4,10} ifadesi A'dan 4-10 arasında A harfi varsa true döner. (4,5,6,7,8,9,10)
+        System.out.println("AAAA".matches("A{4,10}"));
+
+        //"A?" ifadesi ya bir tane A olacak ya da eleman hiç olmayacak. Bu durumda true döner.
+        System.out.println("A".matches("A?"));
+
+
     }
 }
