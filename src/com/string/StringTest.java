@@ -15,8 +15,14 @@ public class StringTest {
         //stringToLowerCase();
         //stringToUpperCase();
         //stringFormat();
-        regex();
+        //regex();
+        //codePointCount();
+        //codePointAt();
+        //codePointBefore();
+        offSetByCodePoints();
     }
+
+    private static final String fullName = "Yunus Emre Çiftçi";
 
     public static void StringChar() {
         char[] ch = {'J', 'A', 'V', 'A'};
@@ -212,5 +218,62 @@ public class StringTest {
         System.out.println("A".matches("A?"));
 
 
+    }
+
+    public static void codePointCount() {
+        String fullName = "Yunus Emre Çiftçi";
+        //codePointCount metodu, Unicode karakterlerini sayar ve int tipinde bu veriyi tutar.
+        //Parametre olarak başlangıç ve bitiş yeri alır. 2 tane int değer.
+        int i = fullName.codePointCount(0, fullName.length());
+        //17 değerini döndürecek.
+        System.out.println("Codepoint metodu çıktısı: " + i);
+        int i1 = fullName.codePointCount(2, fullName.length());
+        //15 değerini döndürecek.
+        System.out.println("Codepoint metodu çıktısı: " + i1);
+        int length = fullName.length();
+
+        //codePointCount ile length arasındaki fark: codePointCount, metindeki karakterlerin Unicode sayısını hesaplayan bir metotdur.
+        //Arasındaki fark örneği
+        String example = "👨‍👩‍👧‍👦";
+        int example1 = example.length();
+        int example2 = example.codePointCount(0, example.length());
+        System.out.println("Difference between length and codePointCount: \nlength:  " + example1 + "\ncodePointCount: " + example2);
+    }
+
+    public static void codePointAt() {
+        //codePointAt metodu bir parametre alır. Verilen parametre (örnek: 2) ilgili String'in
+        //karakter indis değerini alır ve int bir değere o indise karşılık gelen karakterin Unicode değerini atar.
+        System.out.println("Aşağıda fullName'in her bir karakterinin Unicode karşılığını dönen for döngüsü var. ");
+        for (int i = 0; i < fullName.length(); i++) {
+            char c = fullName.charAt(i);
+            int j = fullName.codePointAt(i);
+            System.out.println(c + ": " + j);
+
+        }
+
+    }
+
+    public static void codePointBefore() {
+        //Kendinden önceki karakterin unicode değerini alır kendine atar.
+        //Y'nin unicode değeri: 89. u'nun: 117
+        int i2 = fullName.codePointBefore(1);
+        //1.indexte u harfi var ama u harfi codePointBefore metodundan sonra 117 dönmez 89 döner.
+        System.out.println(i2);
+        //Bu metot'la sıralama işlemi yaparken 1. indeksten başlamamak lazım. Çünkü hata alınır.
+        for (int i = 1; i < fullName.length(); i++) {
+            char c = fullName.charAt(i);
+            int j = fullName.codePointBefore(i);
+            System.out.println(c + ": " + j);
+        }
+
+    }
+
+    public static void offSetByCodePoints() {
+        //ofsetByCodePoints metodu ilk verilen indeksten ikinci verilen parametredeki değer kadar kaydırma yapar.
+        for (int i = fullName.offsetByCodePoints(0,8); i < fullName.length(); i++) {
+            char c = fullName.charAt(i);
+            int j = fullName.codePointAt(i);
+            System.out.println(c + ": " + j);
+        }
     }
 }
