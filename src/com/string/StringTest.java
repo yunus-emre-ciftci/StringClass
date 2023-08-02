@@ -19,8 +19,9 @@ public class StringTest {
         //codePointCount();
         //codePointAt();
         //codePointBefore();
-        offSetByCodePoints();
-        getChars();
+        //offSetByCodePoints();
+        //getChars();
+        stringSplit();
     }
 
     private static final String fullName = "Yunus Emre Çiftçi";
@@ -290,7 +291,21 @@ public class StringTest {
     }
 
     public static void stringSplit() {
-        String[] s = fullName.split(" ");
-        System.out.println(s);
+        //.split metodu paramtere olarak verilen string ifadeyi alır ve String'in içinde bu ifadeyi bulur ve stringi string dizisine çevirir yani böler.
+
+        String country = "Turkey,USA,Italy,England";
+        String[] split = country.split(",");
+        for (String string : split) {
+            System.out.println(string);
+        }
+
+        //USA döner.
+        System.out.println(split[1]);
+
+        //parametre olarak verilen limit değeri: mesela 2 verilde en fazla 2 parçaya böler split metodu. boş bırakılırsa bölebildiği kadar böler.
+        String[] split1 = country.split(",", 2);
+        for (String s : split1) {
+            System.out.println(s);
+        }
     }
 }
