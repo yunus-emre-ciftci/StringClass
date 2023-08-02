@@ -20,6 +20,7 @@ public class StringTest {
         //codePointAt();
         //codePointBefore();
         offSetByCodePoints();
+        getChars();
     }
 
     private static final String fullName = "Yunus Emre Çiftçi";
@@ -270,10 +271,26 @@ public class StringTest {
 
     public static void offSetByCodePoints() {
         //ofsetByCodePoints metodu ilk verilen indeksten ikinci verilen parametredeki değer kadar kaydırma yapar.
-        for (int i = fullName.offsetByCodePoints(0,8); i < fullName.length(); i++) {
+        for (int i = fullName.offsetByCodePoints(0, 8); i < fullName.length(); i++) {
             char c = fullName.charAt(i);
             int j = fullName.codePointAt(i);
             System.out.println(c + ": " + j);
         }
+    }
+
+    public static void getChars() {
+        //getChars bir Stringteki karakterleri bir char array'ine atama işi yapar.
+
+        //5 elemanlı char arrayi oluşturduk.
+        char[] newName = new char[5];
+
+        //fullName'deki karakterlerin 0. sından 5.sine kadar (5.index hariç) karakteri newName'in 0.indeksinden itibaren newName'e atadık.
+        fullName.getChars(0, 5, newName, 0);
+        System.out.println(newName);
+    }
+
+    public static void stringSplit() {
+        String[] s = fullName.split(" ");
+        System.out.println(s);
     }
 }
