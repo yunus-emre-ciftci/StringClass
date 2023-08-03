@@ -1,5 +1,7 @@
 package com.string;
 
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 public class StringTest {
@@ -26,7 +28,10 @@ public class StringTest {
         //stringSplit();
         //splitExample();
         //isEmpty();
-        getBytes();
+        //getBytes();
+        //contentEquals();
+        //equalsIgnoreCase();
+        compareTo();
     }
 
     private static final String fullName = "Yunus Emre Çiftçi";
@@ -102,6 +107,20 @@ public class StringTest {
             e.printStackTrace();
         }
 
+    }
+
+    public static void contentEquals() {
+        StringBuilder stringBuffer = new StringBuilder();
+        StringBuilder yunusEmre = stringBuffer.append("Yunus Emre çiftçi");
+        System.out.println(fullName.contentEquals(yunusEmre));
+    }
+
+    public static void equalsIgnoreCase() {
+        String name = "yunus emre çiftçi";
+
+        //equalsIgnoreCase büyük küçük harf duyarlılığı olmadan içerik eşleşmesi yapar.
+        boolean b = fullName.equalsIgnoreCase(name);
+        System.out.println(b);
     }
 
     public static void stringLength() {
@@ -333,18 +352,39 @@ public class StringTest {
         System.out.println("Longest Word is: " + longestWord + " Number: " + longestWord.length());
 
     }
-    public static void isEmpty(){
+
+    public static void isEmpty() {
         //isEmpty everilen stringin dolu mu boş mu olduğunu kontrol eder. eğer String değer boşsa true döner.
         if (fullName.isEmpty()) {
             System.out.println("Yes");
-        }else {
+        } else {
             System.out.println("No");
-        };
+        }
+        ;
     }
-    public static void getBytes(){
+
+    public static void getBytes() {
+        //fullName'in ASCII değerlerini alır bytes arrayine atar.
         byte[] bytes = fullName.getBytes();
-        for(Byte b : bytes){
+        for (Byte b : bytes) {
             System.out.println(b);
         }
+        //ASCII dışında başka bir yapıya dönüştürülmesini isterseniz StandardCharesets. metodunu kullanıp ekleyebiliriz..
+        System.out.println("\n");
+        byte[] bytes1 = fullName.getBytes(StandardCharsets.ISO_8859_1);
+        for (byte b : bytes1) {
+            System.out.println(b);
+        }
+    }
+    public static void compareTo(){
+        String name = "USA";
+        String name2 = "UAE";
+
+        //compareTo metodu leksikografik sıraya göre hesaplama yapar.
+        //name2 ile name1 arasında alfabetik sıraya göre hareket eder.
+        //USA U'su UAE'nin U'su ile eşleşti. S ile A eşleşmedi. S'nin ASCII tablosunda char sayısını A'nın ASCII tablsoundaki A sayısından çıkartıp ekrana yazar ve metot biter.
+        //Sonu negatif sayı da olabilir.
+        int i = name.compareTo(name2);
+        System.out.println(i);
     }
 }
