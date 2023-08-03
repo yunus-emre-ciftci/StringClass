@@ -1,5 +1,7 @@
 package com.string;
 
+import java.util.Arrays;
+
 public class StringTest {
     public static void main(String[] args) {
         //StringChar();
@@ -21,7 +23,10 @@ public class StringTest {
         //codePointBefore();
         //offSetByCodePoints();
         //getChars();
-        stringSplit();
+        //stringSplit();
+        //splitExample();
+        //isEmpty();
+        getBytes();
     }
 
     private static final String fullName = "Yunus Emre Çiftçi";
@@ -293,8 +298,8 @@ public class StringTest {
     public static void stringSplit() {
         //.split metodu paramtere olarak verilen string ifadeyi alır ve String'in içinde bu ifadeyi bulur ve stringi string dizisine çevirir yani böler.
 
-        String country = "Turkey,USA,Italy,England";
-        String[] split = country.split(",");
+        String country = "Turkey USA Italy England";
+        String[] split = country.split(" ");
         for (String string : split) {
             System.out.println(string);
         }
@@ -306,6 +311,40 @@ public class StringTest {
         String[] split1 = country.split(",", 2);
         for (String s : split1) {
             System.out.println(s);
+        }
+    }
+
+    public static void splitExample() {
+        String infoTurkey = "Turkey (Turkish: Türkiye, pronounced [ˈtyɾcije]), officially the Republic of Türkiye " +
+                "(Turkish: Türkiye Cumhuriyeti [ˈtyɾcije dʒumˈhuːɾijeti] (listen)), is a transcontinental country " +
+                "located mainly on the Anatolian Peninsula in West Asia, with a small portion on the Balkan Peninsula " +
+                "in Southeast Europe. It borders the Black Sea to the north; " +
+                "Georgia to the northeast; Armenia, Azerbaijan, and Iran to the east; Iraq to the southeast; " +
+                "Syria and the Mediterranean Sea to the south; the Aegean Sea to the west; and Greece and Bulgaria to the northwest. " +
+                "Cyprus is off the south coast. Most of the country's citizens are ethnic Turks, while Kurds are the largest ethnic minority.[4] " +
+                "Ankara is Turkey's capital and second-largest city; Istanbul is its largest city and main financial centre.";
+        String[] s = infoTurkey.split(" ");
+        String longestWord = "";
+        for (String country : s) {
+            if (country.length() > longestWord.length()) {
+                longestWord = country;
+            }
+        }
+        System.out.println("Longest Word is: " + longestWord + " Number: " + longestWord.length());
+
+    }
+    public static void isEmpty(){
+        //isEmpty everilen stringin dolu mu boş mu olduğunu kontrol eder. eğer String değer boşsa true döner.
+        if (fullName.isEmpty()) {
+            System.out.println("Yes");
+        }else {
+            System.out.println("No");
+        };
+    }
+    public static void getBytes(){
+        byte[] bytes = fullName.getBytes();
+        for(Byte b : bytes){
+            System.out.println(b);
         }
     }
 }
