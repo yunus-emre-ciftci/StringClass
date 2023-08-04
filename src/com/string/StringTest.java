@@ -32,6 +32,7 @@ public class StringTest {
         //contentEquals();
         //equalsIgnoreCase();
         compareTo();
+        compare();
     }
 
     private static final String fullName = "Yunus Emre Çiftçi";
@@ -387,4 +388,16 @@ public class StringTest {
         int i = name.compareTo(name2);
         System.out.println(i);
     }
+    public static void compare(){
+        //Büyük küçük harf duyarlılığı sağlar. comapreTo ile aynı işlevi görür.
+        String s = "uSA";
+        String d = "UAE";
+        int i = s.compareToIgnoreCase(d);
+        System.out.println(i);
+    }
+    public static void regionMatches(){
+        String name = "Yunus Emre";
+        fullName.regionMatches(0,name,0,name.length())
+    }
+
 }
