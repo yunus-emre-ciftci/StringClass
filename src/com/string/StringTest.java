@@ -39,6 +39,7 @@ public class StringTest {
         //trim();
         //toCharArray();
         valueOf();
+        copyValueOf();
 
     }
 
@@ -472,13 +473,23 @@ public class StringTest {
         }
     }
     public static void valueOf(){
-        //valueOf metodu char array'inin belirli kısımlarını alır String olarak tutar.
+        //valueOf metodu veri türlerini belirli kısımlarını alır String olarak tutar.
         /*1. parametre: hangi char Arrayinin dönüştüreceğimiz.
         * 2. parametre: hangi indexten başlayacağımız.
         * 3. parametre: diziden kaç eleman çekeceğimiz(Sırayla çekilir.)
         * */
         char[] charArray = fullName.toCharArray();
         String s = String.valueOf(charArray,1,4);
+        System.out.println(s);
+
+        String s1 = String.valueOf(4);
+        //4 sayısı s1 değişkeninde tutulan bir String'tir artık.
+        System.out.println(s1);
+    }
+    public static void copyValueOf(){
+        //valueOf ile aynı mantık ama sadece char array'lerini String'e çevirir.
+        char[] charArray = fullName.toCharArray();
+        String s = String.copyValueOf(charArray,0,5);
         System.out.println(s);
     }
 
