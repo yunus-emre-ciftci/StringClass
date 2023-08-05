@@ -1,9 +1,7 @@
 package com.string;
 
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class StringTest {
     public static void main(String[] args) {
@@ -39,7 +37,8 @@ public class StringTest {
         //endsWith();
         //join();
         //trim();
-        toCharArray();
+        //toCharArray();
+        valueOf();
 
     }
 
@@ -471,6 +470,16 @@ public class StringTest {
         for (char c : charArray) {
             System.out.println(c);
         }
+    }
+    public static void valueOf(){
+        //valueOf metodu char array'inin belirli kısımlarını alır String olarak tutar.
+        /*1. parametre: hangi char Arrayinin dönüştüreceğimiz.
+        * 2. parametre: hangi indexten başlayacağımız.
+        * 3. parametre: diziden kaç eleman çekeceğimiz(Sırayla çekilir.)
+        * */
+        char[] charArray = fullName.toCharArray();
+        String s = String.valueOf(charArray,1,4);
+        System.out.println(s);
     }
 
 }
