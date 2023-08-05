@@ -31,8 +31,12 @@ public class StringTest {
         //getBytes();
         //contentEquals();
         //equalsIgnoreCase();
-        compareTo();
-        compare();
+        //compareTo();
+        //compare();
+        //regionMatches();
+        //startsWith();
+        //endsWith();
+
     }
 
     private static final String fullName = "Yunus Emre Çiftçi";
@@ -169,6 +173,7 @@ public class StringTest {
         System.out.println(fullName.indexOf("Yunus", 4));
 
         //
+        fullName.indexOf(1);
 
 
     }
@@ -377,7 +382,8 @@ public class StringTest {
             System.out.println(b);
         }
     }
-    public static void compareTo(){
+
+    public static void compareTo() {
         String name = "USA";
         String name2 = "UAE";
 
@@ -388,16 +394,50 @@ public class StringTest {
         int i = name.compareTo(name2);
         System.out.println(i);
     }
-    public static void compare(){
+
+    public static void compare() {
         //Büyük küçük harf duyarlılığı sağlar. comapreTo ile aynı işlevi görür.
         String s = "uSA";
         String d = "UAE";
         int i = s.compareToIgnoreCase(d);
         System.out.println(i);
     }
-    public static void regionMatches(){
+
+    public static void regionMatches() {
         String name = "Yunus Emre";
-        fullName.regionMatches(0,name,0,name.length())
+
+        //regionMatches metodu iki stringin belirli indekslerini karşılaştırır.
+        /*1. parametre: fullName'in hangi indexinden başlanacağı,
+         * 2. parametre: hangi değişkenle karşılaşacağını yazma,
+         * 3. parametre: name'in hangi indexinden başlayacağı
+         * 4. parametre: İki stringin kaç index karşılaştıracağı
+         * */
+        boolean b = fullName.regionMatches(0, name, 0, 5);
+        System.out.println("Büyük küçük harf duyarlı: " + b);
+
+        String name1 = "yunus Emre";
+
+        //Karşılaştırılan String'lerin büyük küçük harf duyarlılığına sahip olmasını istemezseniz parametrelerin başına true yazabilirsiniz.
+        boolean b1 = fullName.regionMatches(true, 0, name1, 0, 5);
+        System.out.println("Büyük küçük harf duyarsız: " + b1);
+    }
+
+    public static void startsWith() {
+        //startsWith Metodu String karşılaştırma yapar.
+        boolean b = fullName.startsWith("Yunus Emre");
+        System.out.println(b);
+
+        //toffset parametresi ise ilk String'in hangi indexinden karşılaştırma yapacağımızı belirleriz.
+        boolean b1 = fullName.startsWith("Yunus Emre", 0);
+        System.out.println(b1);
+
+    }
+
+    public static void endsWith() {
+        //endWith metodu fullName'in sondaki indexlerine bakarak eşitleme yapar. fulName'in sonunda Çiftçi vardı. tçi'yi kontrol edersek true alırız.
+        //Büyük küçük harf duyarlıdır.
+        boolean b = fullName.endsWith("tçi");
+        System.out.println(b);
     }
 
 }
