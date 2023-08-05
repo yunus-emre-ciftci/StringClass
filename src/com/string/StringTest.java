@@ -2,6 +2,7 @@ package com.string;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class StringTest {
@@ -36,6 +37,7 @@ public class StringTest {
         //regionMatches();
         //startsWith();
         //endsWith();
+        join();
 
     }
 
@@ -438,6 +440,22 @@ public class StringTest {
         //Büyük küçük harf duyarlıdır.
         boolean b = fullName.endsWith("tçi");
         System.out.println(b);
+    }
+    public static void join(){
+        //join metodu dizi ve listelerin elemanlarını birleştirip tek bir String'te tutmamızı sağlar.
+        //join metodu String sınııfından çağrılır. delimiter parametresi her eleman arasına ne ifade koyacağımızı belirler.
+        //Dizi örneği
+        String [] food = new String[]{"Patato, fish"};
+        String join = String.join(" ", food);
+        System.out.println(join);
+
+        //Liste örneği
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("Fenerbahçe");
+        arrayList.add("Galatasaraya");
+        arrayList.add("Beşiktaş");
+        String join1 = String.join(" ", arrayList);
+        System.out.println(join1);
     }
 
 }
