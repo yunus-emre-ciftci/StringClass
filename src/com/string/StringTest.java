@@ -38,7 +38,8 @@ public class StringTest {
         //startsWith();
         //endsWith();
         //join();
-        trim();
+        //trim();
+        toCharArray();
 
     }
 
@@ -463,6 +464,13 @@ public class StringTest {
         String name = "   Yunus Emre ÇİFTÇİ   ";
         String trim = name.trim();
         System.out.println(trim);
+    }
+    public static void toCharArray(){
+        //toCharArray metodu String değişkeni char arrayine dönüştürür.
+        char[] charArray = fullName.toCharArray();
+        for (char c : charArray) {
+            System.out.println(c);
+        }
     }
 
 }
