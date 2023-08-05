@@ -37,7 +37,8 @@ public class StringTest {
         //regionMatches();
         //startsWith();
         //endsWith();
-        join();
+        //join();
+        trim();
 
     }
 
@@ -456,6 +457,12 @@ public class StringTest {
         arrayList.add("Beşiktaş");
         String join1 = String.join(" ", arrayList);
         System.out.println(join1);
+    }
+    public static void trim (){
+        //trim metodu String'in başındaki ve sonundaki boşlukları kaldırır.
+        String name = "   Yunus Emre ÇİFTÇİ   ";
+        String trim = name.trim();
+        System.out.println(trim);
     }
 
 }
